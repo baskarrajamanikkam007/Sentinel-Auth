@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { getAccessToken, getRefreshToken, setTokens, clearTokens } from '@/utils/token';
 
-const client = axios.create({ baseURL: '/api' });
+const BASE = import.meta.env.VITE_API_URL ?? '/api';
+
+const client = axios.create({ baseURL: BASE });
 
 client.interceptors.request.use((config) => {
   const token = getAccessToken();
@@ -45,7 +47,7 @@ client.interceptors.response.use(
     }
 
     try {
-      const { data } = await axios.post('/api/auth/refresh', { refreshToken });
+      const { data } = await axios.post(`${BASE}/auth/refresh`, { refreshToken });
       const { accessToken, refreshToken: newRefresh } = data.data;
       setTokens(accessToken, newRefresh);
       processQueue(null, accessToken);
