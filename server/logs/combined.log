@@ -1,0 +1,4634 @@
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-02T16:08:25.695Z'
+}
+{
+  level: 'error',
+  message: 'Failed to connect to Redis Connection is closed.',
+  stack: 'Error: Connection is closed.\n' +
+    '    at EventEmitter.connectionCloseHandler (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\ioredis\\built\\Redis.js:208:28)\n' +
+    '    at Object.onceWrapper (node:events:634:26)\n' +
+    '    at EventEmitter.emit (node:events:519:28)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:84:11)',
+  timestamp: '2026-05-02T16:08:25.712Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-02T16:08:47.295Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-02T16:08:47.319Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-02T16:08:47.322Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-02T16:26:49.182Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-02T16:26:49.207Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-02T16:26:49.209Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-02T16:37:17.479Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-02T16:37:17.534Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-02T16:37:17.536Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-02T16:37:17.584Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Otp',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 1)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:37:17.709Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-02T16:37:39.911Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-02T16:37:39.931Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-02T16:37:39.932Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-02T16:37:39.969Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Session',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 0)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:37:40.061Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:31.490Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:31.511Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:31.512Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:31.554Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Otp',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 1)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:40:31.660Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:37.728Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:37.747Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:37.748Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:37.785Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Otp',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 1)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:40:37.874Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:45.282Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:45.301Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:45.302Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:45.337Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Otp',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 1)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:40:45.427Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:51.615Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:51.634Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:51.635Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:51.670Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Session',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 0)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:40:51.759Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:57.268Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:57.286Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:57.288Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-02T16:40:57.323Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Session',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 0)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:40:57.419Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:02.664Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:02.683Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:02.684Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:02.719Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Session',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 0)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:41:02.813Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:07.713Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:07.732Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:07.733Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:07.770Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Otp',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 1)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:41:07.861Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:13.533Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:13.553Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:13.554Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:13.590Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Otp',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 1)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:41:13.698Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:18.325Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:18.348Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:18.349Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:18.386Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Otp',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 1)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:41:18.475Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:33.593Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:33.612Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:33.613Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-02T16:41:33.647Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Session',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 0)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:41:33.726Z'
+}
+{
+  message: 'Shutting down gracefully...',
+  level: 'info',
+  timestamp: '2026-05-02T16:43:04.694Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-02T16:43:41.487Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-02T16:43:41.511Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-02T16:43:41.512Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-02T16:43:41.548Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-02T16:43:41.608Z'
+}
+{
+  status: 200,
+  duration: '2ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /health',
+  timestamp: '2026-05-02T16:47:16.374Z'
+}
+{
+  status: 400,
+  duration: '877ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/register',
+  timestamp: '2026-05-02T16:48:57.864Z'
+}
+{
+  status: 400,
+  duration: '702ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/register',
+  timestamp: '2026-05-02T16:50:30.545Z'
+}
+{
+  status: 201,
+  duration: '849ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /register',
+  timestamp: '2026-05-02T16:50:55.193Z'
+}
+{
+  status: 404,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/auth/verify-email',
+  timestamp: '2026-05-02T16:53:23.792Z'
+}
+{
+  status: 200,
+  duration: '71ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /verify-email',
+  timestamp: '2026-05-02T16:53:35.050Z'
+}
+{
+  status: 200,
+  duration: '241ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-02T16:55:01.098Z'
+}
+{
+  status: 401,
+  duration: '157ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-02T16:55:07.071Z'
+}
+{
+  status: 401,
+  duration: '154ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-02T16:55:08.877Z'
+}
+{
+  status: 401,
+  duration: '152ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-02T16:55:09.844Z'
+}
+{
+  status: 401,
+  duration: '145ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-02T16:55:10.659Z'
+}
+{
+  status: 401,
+  duration: '150ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-02T16:55:11.482Z'
+}
+{
+  status: 401,
+  duration: '12ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-02T16:55:12.081Z'
+}
+{
+  status: 429,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-02T16:55:15.061Z'
+}
+{
+  status: 429,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-02T16:55:17.849Z'
+}
+{
+  status: 429,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-02T16:55:22.636Z'
+}
+{
+  status: 429,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-02T16:55:24.947Z'
+}
+{
+  status: 429,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-02T17:02:52.806Z'
+}
+{
+  status: 429,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-02T17:03:00.282Z'
+}
+{
+  status: 401,
+  duration: '48ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-02T17:08:28.540Z'
+}
+{
+  status: 201,
+  duration: '846ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /register',
+  timestamp: '2026-05-02T17:08:33.601Z'
+}
+{
+  status: 200,
+  duration: '168ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /verify-email',
+  timestamp: '2026-05-02T17:09:08.938Z'
+}
+{
+  status: 200,
+  duration: '198ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-02T17:09:33.683Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-02T17:09:56.538Z'
+}
+{
+  status: 401,
+  duration: '12ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-02T17:10:14.535Z'
+}
+{
+  status: 200,
+  duration: '46ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-02T17:10:26.780Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/sessions',
+  timestamp: '2026-05-02T17:10:50.739Z'
+}
+{
+  status: 200,
+  duration: '45ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-02T17:10:55.728Z'
+}
+{
+  error: `Unexpected token '"', " "refreshTo"... is not valid JSON`,
+  stack: `SyntaxError: Unexpected token '"', " "refreshTo"... is not valid JSON\n` +
+    '    at JSON.parse (<anonymous>)\n' +
+    '    at createStrictSyntaxError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\body-parser\\lib\\types\\json.js:109:10)\n' +
+    '    at parse (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\body-parser\\lib\\types\\json.js:66:15)\n' +
+    '    at D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\body-parser\\lib\\read.js:162:18\n' +
+    '    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n' +
+    '    at invokeCallback (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\raw-body\\index.js:238:16)\n' +
+    '    at done (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\raw-body\\index.js:227:7)\n' +
+    '    at IncomingMessage.onEnd (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\raw-body\\index.js:287:7)\n' +
+    '    at IncomingMessage.emit (node:events:519:28)\n' +
+    '    at endReadableNT (node:internal/streams/readable:1698:12)',
+  path: '/api/auth/refresh',
+  level: 'error',
+  message: 'Unhandled error',
+  timestamp: '2026-05-02T17:11:49.528Z'
+}
+{
+  status: 404,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/auth/refresh',
+  timestamp: '2026-05-02T17:12:07.682Z'
+}
+{
+  status: 200,
+  duration: '54ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /refresh',
+  timestamp: '2026-05-02T17:12:12.185Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/keys',
+  timestamp: '2026-05-02T17:12:49.497Z'
+}
+{
+  error: "Cannot read properties of undefined (reading 'name')",
+  stack: "TypeError: Cannot read properties of undefined (reading 'name')\n" +
+    '    at Object.createApiKey (D:\\Development\\projects\\SentinelAuth\\server\\src\\modules\\api-key\\apiKey.service.ts:29:17)\n' +
+    '    at createKey (D:\\Development\\projects\\SentinelAuth\\server\\src\\modules\\api-key\\apiKey.controller.ts:7:40)\n' +
+    '    at Layer.handleRequest (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\router\\lib\\layer.js:152:17)\n' +
+    '    at next (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\router\\lib\\route.js:157:13)\n' +
+    '    at Route.dispatch (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\router\\lib\\route.js:117:3)\n' +
+    '    at handle (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\router\\index.js:435:11)\n' +
+    '    at Layer.handleRequest (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\router\\lib\\layer.js:152:17)\n' +
+    '    at D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\router\\index.js:295:15\n' +
+    '    at processParams (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\router\\index.js:582:12)\n' +
+    '    at next (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\router\\index.js:291:5)',
+  path: '/api/keys',
+  level: 'error',
+  message: 'Unhandled error',
+  timestamp: '2026-05-02T17:13:07.556Z'
+}
+{
+  status: 500,
+  duration: '20ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/keys',
+  timestamp: '2026-05-02T17:13:07.557Z'
+}
+{
+  status: 201,
+  duration: '68ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /',
+  timestamp: '2026-05-02T17:13:32.848Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-02T17:14:25.789Z'
+}
+{
+  status: 200,
+  duration: '36ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-02T17:14:32.300Z'
+}
+{
+  status: 200,
+  duration: '37ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-02T17:21:35.137Z'
+}
+{
+  status: 200,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-02T17:21:36.649Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-02T17:43:41.611Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-02T18:43:41.649Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-02T19:43:41.708Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-02T20:43:41.740Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-03T00:56:16.276Z'
+}
+{
+  status: 200,
+  duration: '390ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T01:02:09.884Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T01:02:09.900Z'
+}
+{
+  message: 'Shutting down gracefully...',
+  level: 'info',
+  timestamp: '2026-05-03T01:02:27.627Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-03T01:02:33.738Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-03T01:02:33.791Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-03T01:02:33.793Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-03T01:02:33.862Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-03T01:02:33.953Z'
+}
+{
+  status: 200,
+  duration: '380ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T01:03:19.915Z'
+}
+{
+  status: 401,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T01:03:19.930Z'
+}
+{
+  status: 200,
+  duration: '179ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T01:04:06.890Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T01:04:06.901Z'
+}
+{
+  status: 200,
+  duration: '162ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T01:10:32.907Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T01:10:32.916Z'
+}
+{
+  message: 'Shutting down gracefully...',
+  level: 'info',
+  timestamp: '2026-05-03T01:13:17.980Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-03T01:13:22.064Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-03T01:13:22.084Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-03T01:13:22.085Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-03T01:13:22.119Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-03T01:13:22.157Z'
+}
+{
+  status: 200,
+  duration: '198ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T01:13:33.139Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T01:13:33.147Z'
+}
+{
+  status: 200,
+  duration: '182ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T01:15:40.032Z'
+}
+{
+  status: 200,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T01:15:40.047Z'
+}
+{
+  status: 200,
+  duration: '10ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:15:40.191Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:15:40.201Z'
+}
+{
+  status: 200,
+  duration: '48ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:15:40.231Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:15:40.240Z'
+}
+{
+  status: 304,
+  duration: '38ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:15:54.821Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:15:54.831Z'
+}
+{
+  status: 200,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /8314de7b-6c11-4bd7-a126-d9b5cedbd38c',
+  timestamp: '2026-05-03T01:16:00.534Z'
+}
+{
+  status: 200,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /ec380e37-a0f2-42be-8832-4af8596bab3f',
+  timestamp: '2026-05-03T01:16:01.255Z'
+}
+{
+  status: 200,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /c390613a-57be-4519-b87d-0135d091426d',
+  timestamp: '2026-05-03T01:16:03.064Z'
+}
+{
+  status: 200,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /096c02a8-8caa-4330-8e39-ef0995aab1cd',
+  timestamp: '2026-05-03T01:16:04.043Z'
+}
+{
+  status: 200,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /61b40aef-bb97-42f9-abef-d6c6113f404f',
+  timestamp: '2026-05-03T01:16:05.341Z'
+}
+{
+  status: 200,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /220bb325-1ac7-43b5-ac3d-cd8e8160bb58',
+  timestamp: '2026-05-03T01:16:06.032Z'
+}
+{
+  status: 200,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /01675dc8-884f-4d82-8b9f-75a0cc28f102',
+  timestamp: '2026-05-03T01:16:06.682Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:16:10.636Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:16:10.644Z'
+}
+{
+  status: 200,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /1331d29e-17f5-4aa5-9c9f-b98e7ebbe8fe',
+  timestamp: '2026-05-03T01:16:16.399Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T01:16:24.607Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T01:16:24.618Z'
+}
+{
+  status: 200,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:16:24.652Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:16:24.661Z'
+}
+{
+  status: 200,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:16:26.343Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:16:26.351Z'
+}
+{
+  status: 304,
+  duration: '38ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:16:26.377Z'
+}
+{
+  status: 304,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:16:26.385Z'
+}
+{
+  status: 304,
+  duration: '39ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:20:43.130Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:20:43.139Z'
+}
+{
+  status: 304,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:20:44.498Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:20:44.506Z'
+}
+{
+  error: '\n' +
+    'Invalid `prisma.apiKey.create()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\modules\\api-key\\apiKey.service.ts:26:38\n' +
+    '\n' +
+    '  23 ): Promise<ApiKeyCreatedResponse> => {\n' +
+    '  24   const { key, hash, prefix } = generateApiKeyPair();\n' +
+    '  25 \n' +
+    '→ 26   const apiKey = await prisma.apiKey.create({\n' +
+    '         data: {\n' +
+    '           userId: "5d73a222-5e44-418f-8341-155b6e2355e9",\n' +
+    '           name: "baskar",\n' +
+    '           keyHash: "f47e356e6f2830f33e9342f9d03cdcfd05c20f7634f5bbb40eb7a54413ac67d1",\n' +
+    '           prefix: "sk_41fd9f5",\n' +
+    '           permissions: [\n' +
+    '             "read:profile"\n' +
+    '           ],\n' +
+    '           expiresAt: "2026-05-04"\n' +
+    '                      ~~~~~~~~~~~~\n' +
+    '         },\n' +
+    '         select: {\n' +
+    '           id: true,\n' +
+    '           name: true,\n' +
+    '           prefix: true,\n' +
+    '           permissions: true,\n' +
+    '           lastUsedAt: true,\n' +
+    '           expiresAt: true,\n' +
+    '           isActive: true,\n' +
+    '           createdAt: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Invalid value for argument `expiresAt`: premature end of input. Expected ISO-8601 DateTime.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.apiKey.create()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\modules\\api-key\\apiKey.service.ts:26:38\n' +
+    '\n' +
+    '  23 ): Promise<ApiKeyCreatedResponse> => {\n' +
+    '  24   const { key, hash, prefix } = generateApiKeyPair();\n' +
+    '  25 \n' +
+    '→ 26   const apiKey = await prisma.apiKey.create({\n' +
+    '         data: {\n' +
+    '           userId: "5d73a222-5e44-418f-8341-155b6e2355e9",\n' +
+    '           name: "baskar",\n' +
+    '           keyHash: "f47e356e6f2830f33e9342f9d03cdcfd05c20f7634f5bbb40eb7a54413ac67d1",\n' +
+    '           prefix: "sk_41fd9f5",\n' +
+    '           permissions: [\n' +
+    '             "read:profile"\n' +
+    '           ],\n' +
+    '           expiresAt: "2026-05-04"\n' +
+    '                      ~~~~~~~~~~~~\n' +
+    '         },\n' +
+    '         select: {\n' +
+    '           id: true,\n' +
+    '           name: true,\n' +
+    '           prefix: true,\n' +
+    '           permissions: true,\n' +
+    '           lastUsedAt: true,\n' +
+    '           expiresAt: true,\n' +
+    '           isActive: true,\n' +
+    '           createdAt: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Invalid value for argument `expiresAt`: premature end of input. Expected ISO-8601 DateTime.\n' +
+    '    at throwValidationException (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\core\\errorRendering\\throwValidationException.ts:46:9)\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:211:7)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at Object.createApiKey (D:\\Development\\projects\\SentinelAuth\\server\\src\\modules\\api-key\\apiKey.service.ts:26:18)\n' +
+    '    at createKey (D:\\Development\\projects\\SentinelAuth\\server\\src\\modules\\api-key\\apiKey.controller.ts:7:20)',
+  path: '/api/keys',
+  level: 'error',
+  message: 'Unhandled error',
+  timestamp: '2026-05-03T01:21:10.969Z'
+}
+{
+  status: 500,
+  duration: '93ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/keys',
+  timestamp: '2026-05-03T01:21:10.971Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-03T01:26:27.163Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-03T01:26:27.183Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-03T01:26:27.184Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-03T01:26:27.217Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-03T01:26:27.270Z'
+}
+{
+  status: 201,
+  duration: '28ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /',
+  timestamp: '2026-05-03T01:26:28.220Z'
+}
+{
+  status: 304,
+  duration: '52ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T01:26:38.527Z'
+}
+{
+  status: 304,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T01:26:38.538Z'
+}
+{
+  status: 200,
+  duration: '16ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:26:38.583Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:26:38.592Z'
+}
+{
+  status: 304,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:26:38.767Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:26:38.778Z'
+}
+{
+  status: 304,
+  duration: '49ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T01:26:38.809Z'
+}
+{
+  status: 304,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T01:26:38.820Z'
+}
+{
+  status: 304,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:26:43.351Z'
+}
+{
+  status: 200,
+  duration: '9ms',
+  ip: '::1',
+  level: 'info',
+  message: 'PATCH /me',
+  timestamp: '2026-05-03T01:26:46.712Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:26:53.244Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:26:53.252Z'
+}
+{
+  status: 304,
+  duration: '8ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:26:55.707Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:26:55.716Z'
+}
+{
+  status: 304,
+  duration: '41ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:26:55.741Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:26:55.750Z'
+}
+{
+  status: 304,
+  duration: '145ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:29:06.639Z'
+}
+{
+  status: 304,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:29:06.646Z'
+}
+{
+  status: 401,
+  duration: '2ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T01:31:11.505Z'
+}
+{
+  status: 401,
+  duration: '2ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T01:31:11.512Z'
+}
+{
+  status: 401,
+  duration: '44ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/refresh',
+  timestamp: '2026-05-03T01:31:11.562Z'
+}
+{
+  status: 200,
+  duration: '164ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T01:31:20.085Z'
+}
+{
+  status: 200,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T01:31:20.096Z'
+}
+{
+  status: 200,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:31:20.182Z'
+}
+{
+  status: 304,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:31:20.193Z'
+}
+{
+  status: 304,
+  duration: '46ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:31:20.222Z'
+}
+{
+  status: 304,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:31:20.231Z'
+}
+{
+  status: 304,
+  duration: '38ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:31:31.228Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T01:31:31.236Z'
+}
+{
+  status: 429,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-03T01:32:21.253Z'
+}
+{
+  status: 429,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-03T01:32:28.326Z'
+}
+{
+  status: 429,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-03T01:32:37.199Z'
+}
+{
+  status: 429,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-03T01:33:19.781Z'
+}
+{
+  status: 429,
+  duration: '2ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-03T01:33:33.046Z'
+}
+{
+  status: 200,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /logout',
+  timestamp: '2026-05-03T01:34:09.676Z'
+}
+{
+  status: 429,
+  duration: '2ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-03T01:34:20.036Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-03T02:26:27.209Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-03T03:26:27.204Z'
+}
+{
+  status: 429,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-03T04:09:29.241Z'
+}
+{
+  status: 429,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-03T04:09:52.725Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-03T04:10:19.517Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-03T04:10:19.552Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-03T04:10:19.554Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-03T04:10:19.593Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-03T04:10:19.677Z'
+}
+{
+  status: 200,
+  duration: '219ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T04:10:20.973Z'
+}
+{
+  status: 200,
+  duration: '8ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T04:10:20.989Z'
+}
+{
+  status: 200,
+  duration: '11ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:10:21.101Z'
+}
+{
+  status: 200,
+  duration: '12ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:10:21.104Z'
+}
+{
+  status: 304,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:10:21.112Z'
+}
+{
+  status: 304,
+  duration: '10ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:10:21.120Z'
+}
+{
+  status: 200,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /logout',
+  timestamp: '2026-05-03T04:10:45.074Z'
+}
+{
+  status: 200,
+  duration: '269ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T04:10:51.464Z'
+}
+{
+  status: 200,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T04:10:51.475Z'
+}
+{
+  status: 200,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:10:51.564Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:10:51.574Z'
+}
+{
+  status: 200,
+  duration: '48ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:10:51.608Z'
+}
+{
+  status: 304,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:10:51.616Z'
+}
+{
+  status: 304,
+  duration: '9ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:10:57.605Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:10:57.614Z'
+}
+{
+  status: 200,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /logout',
+  timestamp: '2026-05-03T04:11:11.310Z'
+}
+{
+  status: 200,
+  duration: '192ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T04:11:18.895Z'
+}
+{
+  status: 200,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T04:11:18.905Z'
+}
+{
+  status: 200,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:18.974Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:18.983Z'
+}
+{
+  status: 304,
+  duration: '47ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:19.016Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:19.025Z'
+}
+{
+  status: 304,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:22.924Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:22.932Z'
+}
+{
+  status: 200,
+  duration: '41ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /d2fa2377-e66f-48ac-8402-d6e41900a516',
+  timestamp: '2026-05-03T04:11:35.746Z'
+}
+{
+  status: 304,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T04:11:37.662Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T04:11:37.671Z'
+}
+{
+  status: 200,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:37.710Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:37.719Z'
+}
+{
+  status: 200,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /c5171c71-2fcf-4206-9cf1-6f0337fa91f9',
+  timestamp: '2026-05-03T04:11:39.317Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T04:11:40.821Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T04:11:40.829Z'
+}
+{
+  status: 200,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:40.863Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:40.871Z'
+}
+{
+  status: 200,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /0f15a3de-1966-4bb3-b414-7e4428ef9435',
+  timestamp: '2026-05-03T04:11:41.893Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T04:11:43.221Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T04:11:43.229Z'
+}
+{
+  status: 200,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:43.259Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:43.270Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T04:11:44.093Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T04:11:44.106Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:44.131Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:44.140Z'
+}
+{
+  status: 304,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:44.700Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:44.708Z'
+}
+{
+  status: 200,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /007bc3c4-9a70-453c-b449-e2a2dbf41020',
+  timestamp: '2026-05-03T04:11:45.913Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T04:11:47.257Z'
+}
+{
+  status: 304,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T04:11:47.265Z'
+}
+{
+  status: 200,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:47.300Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:47.308Z'
+}
+{
+  status: 304,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T04:11:48.095Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T04:11:48.103Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:48.134Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:48.143Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:50.142Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:50.150Z'
+}
+{
+  status: 304,
+  duration: '47ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:50.186Z'
+}
+{
+  status: 304,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:11:50.194Z'
+}
+{
+  status: 304,
+  duration: '147ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:12:15.586Z'
+}
+{
+  status: 304,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:12:15.592Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-03T04:12:24.121Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-03T04:12:24.140Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-03T04:12:24.141Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-03T04:12:24.175Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-03T04:12:24.311Z'
+}
+{
+  status: 401,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T04:48:41.951Z'
+}
+{
+  status: 401,
+  duration: '2ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/keys',
+  timestamp: '2026-05-03T04:49:52.555Z'
+}
+{
+  status: 401,
+  duration: '89ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/refresh',
+  timestamp: '2026-05-03T04:49:52.651Z'
+}
+{
+  status: 429,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-03T04:50:01.453Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-03T04:50:17.118Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-03T04:50:17.143Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-03T04:50:17.145Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-03T04:50:17.180Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-03T04:50:17.226Z'
+}
+{
+  status: 200,
+  duration: '180ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T04:50:18.685Z'
+}
+{
+  status: 200,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T04:50:18.695Z'
+}
+{
+  status: 200,
+  duration: '8ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:50:18.743Z'
+}
+{
+  status: 304,
+  duration: '10ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:50:18.746Z'
+}
+{
+  status: 304,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:50:18.755Z'
+}
+{
+  status: 304,
+  duration: '8ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:50:18.759Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:50:20.366Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T04:50:20.373Z'
+}
+{
+  status: 201,
+  duration: '47ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /',
+  timestamp: '2026-05-03T04:50:31.616Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T04:50:47.494Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T04:51:08.579Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T04:51:09.406Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T04:52:09.165Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T04:52:29.564Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T04:52:32.252Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T04:52:38.365Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T04:52:44.398Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T04:52:47.732Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T04:52:55.548Z'
+}
+{
+  status: 200,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /health',
+  timestamp: '2026-05-03T05:04:07.374Z'
+}
+{
+  status: 401,
+  duration: '39ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-03T05:04:24.422Z'
+}
+{
+  status: 429,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/register',
+  timestamp: '2026-05-03T05:05:09.715Z'
+}
+{
+  message: 'Shutting down gracefully...',
+  level: 'info',
+  timestamp: '2026-05-03T05:05:15.494Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-03T05:05:18.593Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-03T05:05:18.619Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-03T05:05:18.620Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-03T05:05:18.655Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-03T05:05:18.806Z'
+}
+{
+  status: 429,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/register',
+  timestamp: '2026-05-03T05:05:21.212Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-03T05:05:32.092Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-03T05:05:32.129Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-03T05:05:32.130Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-03T05:05:32.166Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-03T05:05:32.208Z'
+}
+{
+  status: 201,
+  duration: '777ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /register',
+  timestamp: '2026-05-03T05:05:33.563Z'
+}
+{
+  status: 200,
+  duration: '230ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T05:06:12.236Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:07:08.372Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:07:14.084Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:07:25.303Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:07:34.678Z'
+}
+{
+  status: 200,
+  duration: '205ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T05:07:51.145Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:07:54.890Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:08:07.200Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:08:43.108Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:08:44.290Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:08:56.343Z'
+}
+{
+  status: 200,
+  duration: '310ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T05:09:07.227Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:09:10.360Z'
+}
+{
+  status: 200,
+  duration: '41ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T05:10:00.737Z'
+}
+{
+  status: 200,
+  duration: '51ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T05:10:16.682Z'
+}
+{
+  status: 200,
+  duration: '40ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /785d7881-b2cb-418b-9c84-87ed7fbcd229',
+  timestamp: '2026-05-03T05:10:28.482Z'
+}
+{
+  status: 200,
+  duration: '21ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /',
+  timestamp: '2026-05-03T05:10:33.518Z'
+}
+{
+  status: 201,
+  duration: '44ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /',
+  timestamp: '2026-05-03T05:10:45.487Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:10:52.078Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:10:57.581Z'
+}
+{
+  status: 201,
+  duration: '47ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /',
+  timestamp: '2026-05-03T05:11:14.944Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:11:19.826Z'
+}
+{
+  status: 200,
+  duration: '53ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T05:11:29.187Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:11:37.331Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:11:42.604Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:11:43.847Z'
+}
+{
+  status: 200,
+  duration: '208ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T05:11:52.179Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:11:57.466Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:12:08.294Z'
+}
+{
+  status: 200,
+  duration: '37ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T05:12:20.200Z'
+}
+{
+  status: 201,
+  duration: '14ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /',
+  timestamp: '2026-05-03T05:12:25.968Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:12:31.002Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:13:07.120Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:13:08.804Z'
+}
+{
+  status: 201,
+  duration: '839ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /register',
+  timestamp: '2026-05-03T05:14:03.325Z'
+}
+{
+  status: 200,
+  duration: '186ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T05:14:43.183Z'
+}
+{
+  status: 200,
+  duration: '37ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T05:14:58.439Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:15:09.496Z'
+}
+{
+  status: 201,
+  duration: '149ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /',
+  timestamp: '2026-05-03T05:15:18.111Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:15:24.480Z'
+}
+{
+  status: 200,
+  duration: '37ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T05:15:29.295Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:15:50.794Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:16:00.248Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:16:01.761Z'
+}
+{
+  status: 200,
+  duration: '36ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T05:16:04.697Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:16:13.000Z'
+}
+{
+  status: 200,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /health',
+  timestamp: '2026-05-03T05:17:49.453Z'
+}
+{
+  status: 409,
+  duration: '161ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/register',
+  timestamp: '2026-05-03T05:17:49.701Z'
+}
+{
+  status: 400,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/verify-email',
+  timestamp: '2026-05-03T05:17:49.775Z'
+}
+{
+  status: 200,
+  duration: '164ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T05:17:50.026Z'
+}
+{
+  status: 401,
+  duration: '292ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-03T05:17:50.367Z'
+}
+{
+  status: 200,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /logout',
+  timestamp: '2026-05-03T05:17:50.447Z'
+}
+{
+  status: 400,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/refresh',
+  timestamp: '2026-05-03T05:17:50.520Z'
+}
+{
+  status: 429,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/forgot-password',
+  timestamp: '2026-05-03T05:17:50.585Z'
+}
+{
+  status: 400,
+  duration: '2ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/reset-password',
+  timestamp: '2026-05-03T05:17:50.664Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/change-password',
+  timestamp: '2026-05-03T05:17:50.729Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:17:50.796Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:17:50.892Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'PATCH /api/users/me',
+  timestamp: '2026-05-03T05:17:50.963Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /api/users/me',
+  timestamp: '2026-05-03T05:17:51.055Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/sessions',
+  timestamp: '2026-05-03T05:17:51.155Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /api/sessions/',
+  timestamp: '2026-05-03T05:17:51.234Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /api/sessions',
+  timestamp: '2026-05-03T05:17:51.306Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/keys',
+  timestamp: '2026-05-03T05:17:51.371Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/keys',
+  timestamp: '2026-05-03T05:17:51.446Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:17:51.514Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/keys',
+  timestamp: '2026-05-03T05:17:51.573Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /api/keys/',
+  timestamp: '2026-05-03T05:17:51.654Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:17:51.735Z'
+}
+{
+  status: 401,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-03T05:17:51.807Z'
+}
+{
+  status: 200,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /health',
+  timestamp: '2026-05-03T05:19:24.956Z'
+}
+{
+  status: 200,
+  duration: '196ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T05:19:25.247Z'
+}
+{
+  status: 200,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T05:19:25.308Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:19:25.386Z'
+}
+{
+  status: 200,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T05:19:25.466Z'
+}
+{
+  status: 201,
+  duration: '15ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /',
+  timestamp: '2026-05-03T05:19:25.576Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:19:25.648Z'
+}
+{
+  status: 200,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T05:19:25.727Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-03T05:21:16.406Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-03T05:21:16.441Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-03T05:21:16.443Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-03T05:21:16.479Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-03T05:21:16.526Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-03T05:22:36.631Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-03T05:22:36.651Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-03T05:22:36.652Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-03T05:22:36.691Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-03T05:22:36.834Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-03T05:22:45.820Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-03T05:22:45.845Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-03T05:22:45.847Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-03T05:22:45.886Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-03T05:22:45.943Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-03T05:23:06.913Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-03T05:23:06.935Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-03T05:23:06.936Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-03T05:23:06.974Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-03T05:23:07.124Z'
+}
+{
+  status: 200,
+  duration: '101ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T05:23:57.014Z'
+}
+{
+  status: 200,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T05:24:02.066Z'
+}
+{
+  status: 200,
+  duration: '10ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T05:24:05.372Z'
+}
+{
+  status: 200,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /logout',
+  timestamp: '2026-05-03T05:24:16.721Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:24:20.850Z'
+}
+{
+  status: 200,
+  duration: '74ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T05:24:25.929Z'
+}
+{
+  status: 200,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T05:24:26.962Z'
+}
+{
+  status: 200,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T05:24:27.752Z'
+}
+{
+  status: 401,
+  duration: '2ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:39:54.252Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T05:39:54.257Z'
+}
+{
+  status: 401,
+  duration: '37ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/refresh',
+  timestamp: '2026-05-03T05:39:54.308Z'
+}
+{
+  status: 401,
+  duration: '221ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-03T05:40:27.780Z'
+}
+{
+  status: 401,
+  duration: '218ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-03T05:41:01.244Z'
+}
+{
+  message: 'Shutting down gracefully...',
+  level: 'info',
+  timestamp: '2026-05-03T05:45:28.970Z'
+}
+{
+  message: 'PostgreSQL connected via Prisma',
+  level: 'info',
+  timestamp: '2026-05-03T05:45:32.720Z'
+}
+{
+  message: 'Redis connection established',
+  level: 'info',
+  timestamp: '2026-05-03T05:45:32.743Z'
+}
+{
+  message: 'Breach sync job: not configured — using real-time HIBP k-anonymity API instead',
+  level: 'info',
+  timestamp: '2026-05-03T05:45:32.744Z'
+}
+{
+  message: 'Server running on port 5000 [development]',
+  level: 'info',
+  timestamp: '2026-05-03T05:45:32.780Z'
+}
+{
+  message: 'Cleanup job: removed 0 expired sessions, 0 expired OTPs',
+  level: 'info',
+  timestamp: '2026-05-03T05:45:32.821Z'
+}
+{
+  status: 200,
+  duration: '253ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T05:46:08.244Z'
+}
+{
+  status: 200,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T05:46:08.258Z'
+}
+{
+  status: 200,
+  duration: '11ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T05:46:08.377Z'
+}
+{
+  status: 304,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T05:46:08.388Z'
+}
+{
+  status: 200,
+  duration: '57ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T05:46:08.423Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T05:46:08.432Z'
+}
+{
+  status: 304,
+  duration: '42ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T05:46:23.033Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T05:46:23.041Z'
+}
+{
+  status: 304,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T05:46:24.435Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T05:46:24.443Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T05:46:24.468Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T05:46:24.475Z'
+}
+{
+  status: 304,
+  duration: '50ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T05:46:41.682Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T05:46:41.691Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/keys',
+  timestamp: '2026-05-03T06:01:22.152Z'
+}
+{
+  status: 401,
+  duration: '36ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T06:01:28.148Z'
+}
+{
+  status: 401,
+  duration: '0ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/keys',
+  timestamp: '2026-05-03T06:01:36.594Z'
+}
+{
+  status: 401,
+  duration: '45ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-03T06:01:40.894Z'
+}
+{
+  status: 401,
+  duration: '209ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-03T06:02:05.182Z'
+}
+{
+  status: 401,
+  duration: '155ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/login',
+  timestamp: '2026-05-03T06:02:12.607Z'
+}
+{
+  status: 200,
+  duration: '145ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T06:02:20.331Z'
+}
+{
+  status: 201,
+  duration: '20ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /',
+  timestamp: '2026-05-03T06:02:24.124Z'
+}
+{
+  status: 200,
+  duration: '99ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:04:48.985Z'
+}
+{
+  status: 201,
+  duration: '210ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /',
+  timestamp: '2026-05-03T06:05:17.470Z'
+}
+{
+  status: 201,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /',
+  timestamp: '2026-05-03T06:05:18.463Z'
+}
+{
+  status: 200,
+  duration: '58ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:05:22.453Z'
+}
+{
+  status: 200,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:05:27.979Z'
+}
+{
+  status: 401,
+  duration: '2ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T06:05:32.662Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T06:05:32.667Z'
+}
+{
+  status: 200,
+  duration: '20ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /refresh',
+  timestamp: '2026-05-03T06:05:32.693Z'
+}
+{
+  status: 200,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:05:32.709Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:05:32.717Z'
+}
+{
+  status: 200,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:05:33.451Z'
+}
+{
+  status: 304,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:05:33.463Z'
+}
+{
+  status: 304,
+  duration: '153ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:05:55.408Z'
+}
+{
+  status: 304,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:05:55.419Z'
+}
+{
+  status: 304,
+  duration: '8ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:05:55.461Z'
+}
+{
+  status: 304,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:05:55.472Z'
+}
+{
+  status: 200,
+  duration: '67ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:06:03.353Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:06:05.474Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:06:05.482Z'
+}
+{
+  status: 200,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:06:05.515Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:06:05.525Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:06:06.902Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:06:06.910Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:06:06.938Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:06:06.946Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:06:07.819Z'
+}
+{
+  status: 304,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:06:07.826Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:06:07.854Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:06:07.861Z'
+}
+{
+  status: 200,
+  duration: '173ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:06:16.355Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:06:19.004Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:06:19.012Z'
+}
+{
+  status: 200,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:06:19.044Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:06:19.053Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:06:22.413Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:06:22.422Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:06:22.459Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:06:22.468Z'
+}
+{
+  status: 200,
+  duration: '11ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /e968a993-5bd9-4e17-b874-99e8cec86dca',
+  timestamp: '2026-05-03T06:06:30.244Z'
+}
+{
+  status: 200,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /ba18083a-0db4-4d77-a165-3fe930a43e4e',
+  timestamp: '2026-05-03T06:06:31.223Z'
+}
+{
+  status: 304,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:06:32.585Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:06:32.593Z'
+}
+{
+  status: 200,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:06:32.618Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:06:32.625Z'
+}
+{
+  status: 200,
+  duration: '52ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:09:52.746Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:09:52.754Z'
+}
+{
+  status: 304,
+  duration: '56ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:10:44.344Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:10:44.352Z'
+}
+{
+  status: 200,
+  duration: '38ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:12:10.182Z'
+}
+{
+  status: 401,
+  duration: '146ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T06:12:33.659Z'
+}
+{
+  status: 200,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:12:40.041Z'
+}
+{
+  status: 200,
+  duration: '75ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:13:02.122Z'
+}
+{
+  status: 304,
+  duration: '136ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:14:44.827Z'
+}
+{
+  status: 304,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:14:44.834Z'
+}
+{
+  status: 200,
+  duration: '199ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /login',
+  timestamp: '2026-05-03T06:15:04.094Z'
+}
+{
+  status: 200,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:15:06.099Z'
+}
+{
+  status: 304,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:15:06.106Z'
+}
+{
+  status: 200,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:15:06.134Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:15:06.140Z'
+}
+{
+  status: 200,
+  duration: '67ms',
+  ip: '::1',
+  level: 'info',
+  message: 'DELETE /',
+  timestamp: '2026-05-03T06:16:21.368Z'
+}
+{
+  status: 304,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:16:22.587Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:16:22.595Z'
+}
+{
+  status: 200,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:16:22.624Z'
+}
+{
+  status: 304,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:16:22.630Z'
+}
+{
+  status: 200,
+  duration: '41ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:16:26.166Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:16:28.286Z'
+}
+{
+  status: 304,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /me',
+  timestamp: '2026-05-03T06:16:28.294Z'
+}
+{
+  status: 304,
+  duration: '6ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:16:28.323Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:16:28.330Z'
+}
+{
+  status: 200,
+  duration: '7ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:16:29.276Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:16:29.284Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:16:31.426Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:16:31.434Z'
+}
+{
+  status: 304,
+  duration: '3ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:16:35.520Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:16:35.521Z'
+}
+{
+  status: 304,
+  duration: '5ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:16:35.529Z'
+}
+{
+  status: 304,
+  duration: '4ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /',
+  timestamp: '2026-05-03T06:16:35.531Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T06:24:06.363Z'
+}
+{
+  status: 401,
+  duration: '1ms',
+  ip: '::1',
+  level: 'info',
+  message: 'GET /api/users/me',
+  timestamp: '2026-05-03T06:24:06.369Z'
+}
+{
+  status: 401,
+  duration: '150ms',
+  ip: '::1',
+  level: 'info',
+  message: 'POST /api/auth/refresh',
+  timestamp: '2026-05-03T06:24:06.536Z'
+}
+{
+  message: 'Shutting down gracefully...',
+  level: 'info',
+  timestamp: '2026-05-03T06:26:49.920Z'
+}

@@ -1,0 +1,799 @@
+{
+  "info": {
+    "name": "SentinelAuth",
+    "description": "Complete test collection for SentinelAuth API. Import this file into Postman and follow the steps in TESTING.md.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl",      "value": "http://localhost:5000",  "type": "string" },
+    { "key": "accessToken",  "value": "",                       "type": "string" },
+    { "key": "refreshToken", "value": "",                       "type": "string" },
+    { "key": "userId",       "value": "",                       "type": "string" },
+    { "key": "sessionId",    "value": "",                       "type": "string" },
+    { "key": "keyId",        "value": "",                       "type": "string" },
+    { "key": "apiKey",       "value": "",                       "type": "string" },
+    { "key": "adminToken",   "value": "",                       "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "00 - Health Check",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/health",
+            "description": "Confirm the server is running. No headers needed."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Server is healthy', () => {",
+                  "  pm.response.to.have.status(200);",
+                  "  pm.expect(pm.response.json().status).to.eql('ok');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "01 - Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/register",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"alice@example.com\",\n  \"password\": \"AlicePass@123\",\n  \"name\": \"Alice\"\n}"
+            },
+            "description": "Creates a new user account. Returns userId. A 6-digit OTP is sent to the email.\n\nSave data.userId into the 'userId' collection variable."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('Registration successful', () => {",
+                  "  pm.response.to.have.status(201);",
+                  "  pm.expect(json.success).to.be.true;",
+                  "});",
+                  "if (json.success && json.data && json.data.userId) {",
+                  "  pm.collectionVariables.set('userId', json.data.userId);",
+                  "  console.log('userId saved:', json.data.userId);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Verify Email",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/verify-email",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"{{userId}}\",\n  \"code\": \"PASTE_OTP_HERE\"\n}"
+            },
+            "description": "Submit the 6-digit OTP from your email.\n\nReplace PASTE_OTP_HERE with the code from the email.\nThe code expires in 10 minutes and is single-use."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Email verified', () => {",
+                  "  pm.response.to.have.status(200);",
+                  "  pm.expect(pm.response.json().success).to.be.true;",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/login",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"alice@example.com\",\n  \"password\": \"AlicePass@123\"\n}"
+            },
+            "description": "Login and get access + refresh tokens.\n\nThe test script below automatically saves both tokens as collection variables.\nAll other authenticated requests use {{accessToken}} automatically."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('Login successful', () => {",
+                  "  pm.response.to.have.status(200);",
+                  "  pm.expect(json.success).to.be.true;",
+                  "  pm.expect(json.data).to.have.property('accessToken');",
+                  "  pm.expect(json.data).to.have.property('refreshToken');",
+                  "});",
+                  "if (json.success && json.data) {",
+                  "  pm.collectionVariables.set('accessToken', json.data.accessToken);",
+                  "  pm.collectionVariables.set('refreshToken', json.data.refreshToken);",
+                  "  console.log('Tokens saved. accessToken starts with:', json.data.accessToken.substring(0, 30) + '...');",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Login - Wrong Password (brute force test)",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/login",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"alice@example.com\",\n  \"password\": \"WRONGPASSWORD\"\n}"
+            },
+            "description": "Send this 5 times in a row. On the 5th attempt you will get 401 Account locked."
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/logout",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" }
+            ],
+            "description": "Blacklists the current access token in Redis and marks the session as revoked.\n\nAfter this, the same accessToken returns 401 on all protected routes."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Logout successful', () => {",
+                  "  pm.response.to.have.status(200);",
+                  "  pm.expect(pm.response.json().success).to.be.true;",
+                  "});",
+                  "pm.collectionVariables.set('accessToken', '');",
+                  "pm.collectionVariables.set('refreshToken', '');"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Refresh Token",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/refresh",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refreshToken\": \"{{refreshToken}}\"\n}"
+            },
+            "description": "Exchange the refresh token for a new access + refresh pair.\n\nThe old refresh token is immediately invalidated (token rotation).\nUsing the old refresh token again returns 401."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.success && json.data) {",
+                  "  pm.collectionVariables.set('accessToken', json.data.accessToken);",
+                  "  pm.collectionVariables.set('refreshToken', json.data.refreshToken);",
+                  "  console.log('Tokens refreshed.');",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Forgot Password",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/forgot-password",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"alice@example.com\"\n}"
+            },
+            "description": "Always returns success regardless of whether the email exists.\nThis prevents email enumeration attacks.\n\nAn OTP is sent to the email if the account exists."
+          }
+        },
+        {
+          "name": "Reset Password",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/reset-password",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"{{userId}}\",\n  \"code\": \"PASTE_OTP_HERE\",\n  \"newPassword\": \"NewAlicePass@456\"\n}"
+            },
+            "description": "Reset password using the OTP from email.\n\nAfter success, all sessions are revoked (forced logout everywhere)."
+          }
+        },
+        {
+          "name": "Change Password (logged in)",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/change-password",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" },
+              { "key": "Content-Type",  "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"currentPassword\": \"AlicePass@123\",\n  \"newPassword\": \"AliceNewPass@456\"\n}"
+            },
+            "description": "Change password while already logged in. Requires the current password.\n\nAfter success, all sessions except the current one are revoked."
+          }
+        }
+      ]
+    },
+    {
+      "name": "02 - User",
+      "item": [
+        {
+          "name": "Get My Profile",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/me",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" }
+            ],
+            "description": "Returns id, email, name, role, isEmailVerified, isActive, lastLoginAt, createdAt."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Profile loaded', () => {",
+                  "  pm.response.to.have.status(200);",
+                  "  const json = pm.response.json();",
+                  "  pm.expect(json.data).to.have.property('email');",
+                  "  pm.expect(json.data).to.have.property('role');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get My Profile - via API Key",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/me",
+            "header": [
+              { "key": "X-Api-Key", "value": "{{apiKey}}" }
+            ],
+            "description": "Same endpoint, but authenticated with an API key instead of a JWT.\n\nPaste your API key in the {{apiKey}} collection variable or replace it directly."
+          }
+        },
+        {
+          "name": "Update Name",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/users/me",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" },
+              { "key": "Content-Type",  "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Alice Updated\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Delete Account",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/users/me",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" }
+            ],
+            "description": "IRREVERSIBLE. Deletes the user and all associated data. Use with care during testing."
+          }
+        }
+      ]
+    },
+    {
+      "name": "03 - Sessions",
+      "item": [
+        {
+          "name": "List My Sessions",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/sessions",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" }
+            ],
+            "description": "Returns all active, non-expired sessions for the current user.\n\nEach login creates a new session. Login from Postman AND the browser to see multiple sessions."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('Sessions loaded', () => {",
+                  "  pm.response.to.have.status(200);",
+                  "  pm.expect(json.data).to.be.an('array');",
+                  "});",
+                  "if (json.data && json.data.length > 0) {",
+                  "  pm.collectionVariables.set('sessionId', json.data[0].id);",
+                  "  console.log('First sessionId saved:', json.data[0].id);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Revoke One Session",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/sessions/{{sessionId}}",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" }
+            ],
+            "description": "Revokes one specific session. The sessionId is saved automatically by the List Sessions test script.\n\nThe refresh token for that session stops working immediately."
+          }
+        },
+        {
+          "name": "Revoke All Sessions",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/sessions",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" }
+            ],
+            "description": "Revokes ALL sessions for this user. Every refresh token is now dead.\n\nYou will need to login again after this."
+          }
+        }
+      ]
+    },
+    {
+      "name": "04 - API Keys",
+      "item": [
+        {
+          "name": "Create API Key (with permissions + expiry)",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/keys",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" },
+              { "key": "Content-Type",  "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"My CI/CD Script\",\n  \"permissions\": [\"read:profile\", \"read:sessions\"],\n  \"expiresAt\": \"2026-12-31\"\n}"
+            },
+            "description": "Creates an API key with specific permissions and an expiry date.\n\nAvailable permissions:\n  read:profile, read:sessions, write:sessions, read:keys, write:keys\n\nIMPORTANT: Copy data.key from the response immediately. It is shown only once."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();",
+                  "pm.test('API key created', () => {",
+                  "  pm.response.to.have.status(201);",
+                  "  pm.expect(json.data).to.have.property('key');",
+                  "});",
+                  "if (json.success && json.data) {",
+                  "  pm.collectionVariables.set('keyId', json.data.id);",
+                  "  pm.collectionVariables.set('apiKey', json.data.key);",
+                  "  console.log('API Key saved. Prefix:', json.data.prefix);",
+                  "  console.log('IMPORTANT: This is the only time the full key is shown.');",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create API Key (full access, no expiry)",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/keys",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" },
+              { "key": "Content-Type",  "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Full Access Key\"\n}"
+            },
+            "description": "Creates a permanent key with full access (no permission restrictions).\n\nOmitting permissions means the key has unrestricted access."
+          }
+        },
+        {
+          "name": "Use API Key - Get Profile",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/me",
+            "header": [
+              { "key": "X-Api-Key", "value": "{{apiKey}}" }
+            ],
+            "description": "Uses the API key (saved by the Create request) to authenticate.\n\nNo JWT, no sessions, no token refresh needed.\nThe server hashes the key and looks it up in the database on every request."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('API key authentication works', () => {",
+                  "  pm.response.to.have.status(200);",
+                  "  pm.expect(pm.response.json().success).to.be.true;",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List API Keys",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/keys",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" }
+            ],
+            "description": "Returns all active API keys. The full key value is never returned here, only the prefix."
+          }
+        },
+        {
+          "name": "Revoke API Key",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/keys/{{keyId}}",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" }
+            ],
+            "description": "Permanently revokes the API key. Using it after this returns 401 immediately."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Key revoked', () => {",
+                  "  pm.response.to.have.status(200);",
+                  "  pm.expect(pm.response.json().success).to.be.true;",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Use Revoked Key (expect 401)",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/me",
+            "header": [
+              { "key": "X-Api-Key", "value": "{{apiKey}}" }
+            ],
+            "description": "Run this AFTER revoking the key. You should get 401 Invalid or inactive API key."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Revoked key is rejected', () => {",
+                  "  pm.response.to.have.status(401);",
+                  "  pm.expect(pm.response.json().success).to.be.false;",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "05 - Admin",
+      "item": [
+        {
+          "name": "LOGIN AS ADMIN (run this first)",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/login",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"AdminPass@123\"\n}"
+            },
+            "description": "Login as an ADMIN user. The adminToken is saved automatically.\n\nTo promote a user to ADMIN, run this SQL:\n  UPDATE \"User\" SET role = 'ADMIN' WHERE email = 'admin@example.com';"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const json = pm.response.json();",
+                  "if (json.success && json.data) {",
+                  "  pm.collectionVariables.set('adminToken', json.data.accessToken);",
+                  "  console.log('Admin token saved.');",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "List All Users",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/users?page=1&limit=20",
+              "query": [
+                { "key": "page",  "value": "1" },
+                { "key": "limit", "value": "20" }
+              ]
+            },
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ]
+          }
+        },
+        {
+          "name": "Change User Role",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/admin/users/USER_ID_HERE/role",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" },
+              { "key": "Content-Type",  "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"role\": \"MODERATOR\"\n}"
+            },
+            "description": "Replace USER_ID_HERE with the actual user UUID.\nValid roles: USER, MODERATOR, ADMIN"
+          }
+        },
+        {
+          "name": "Lock User Account",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/admin/users/USER_ID_HERE/lock",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" },
+              { "key": "Content-Type",  "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"durationMinutes\": 60\n}"
+            },
+            "description": "Replace USER_ID_HERE with the actual user UUID.\nLocks the account for 60 minutes. The user cannot login during this time."
+          }
+        },
+        {
+          "name": "Unlock User Account",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/admin/users/USER_ID_HERE/unlock",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "description": "Replace USER_ID_HERE with the actual user UUID."
+          }
+        },
+        {
+          "name": "Audit Logs",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/audit-logs?page=1&limit=50",
+              "query": [
+                { "key": "page",   "value": "1" },
+                { "key": "limit",  "value": "50" },
+                { "key": "userId", "value": "", "disabled": true }
+              ]
+            },
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ],
+            "description": "Returns all audit log entries.\n\nTo filter by a specific user, enable the 'userId' query param and paste a user UUID."
+          }
+        },
+        {
+          "name": "All Sessions (Admin View)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/sessions?page=1&limit=50",
+              "query": [
+                { "key": "page",  "value": "1" },
+                { "key": "limit", "value": "50" }
+              ]
+            },
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{adminToken}}" }
+            ]
+          }
+        },
+        {
+          "name": "Non-Admin Access Test (expect 403)",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/admin/users",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{accessToken}}" }
+            ],
+            "description": "Uses the regular user token (not admin). Should return 403 Insufficient permissions."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Non-admin is blocked', () => {",
+                  "  pm.response.to.have.status(403);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "06 - Security Tests",
+      "item": [
+        {
+          "name": "Use Token After Logout (expect 401)",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/me",
+            "header": [
+              { "key": "Authorization", "value": "Bearer PASTE_OLD_TOKEN_HERE" }
+            ],
+            "description": "Paste the accessToken you used BEFORE calling Logout.\nShould return 401 Token has been revoked (blacklisted in Redis)."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Blacklisted token is rejected', () => {",
+                  "  pm.response.to.have.status(401);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "No Token (expect 401)",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/me",
+            "description": "No Authorization header. Should return 401 No token provided."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Missing token is rejected', () => {",
+                  "  pm.response.to.have.status(401);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Fake Token (expect 401)",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/me",
+            "header": [
+              { "key": "Authorization", "value": "Bearer thisisnotarealtoken" }
+            ],
+            "description": "Invalid JWT. Should return 401 Invalid or expired token."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Fake token is rejected', () => {",
+                  "  pm.response.to.have.status(401);",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Reuse Refresh Token (expect 401 on 2nd call)",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/refresh",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refreshToken\": \"PASTE_OLD_REFRESH_TOKEN_HERE\"\n}"
+            },
+            "description": "Paste a refresh token that was already used once.\nShould return 401 Invalid or expired refresh token.\n\nThis demonstrates token rotation - each refresh token can only be used once."
+          }
+        },
+        {
+          "name": "Breached Password (expect 400)",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/register",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test2@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "description": "Uses a known breached password. Should return 400 Password appears in known data breaches.\n\nOther breached passwords to test: 123456, qwerty, letmein, iloveyou"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Breached password rejected', () => {",
+                  "  pm.response.to.have.status(400);",
+                  "  const msg = pm.response.json().message;",
+                  "  pm.expect(msg).to.include('breach');",
+                  "});"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Validation Error (expect 422)",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/auth/register",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"not-an-email\",\n  \"password\": \"short\"\n}"
+            },
+            "description": "Invalid email format and password too short. Should return 422 validation errors."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Validation error returned', () => {",
+                  "  pm.response.to.have.status(422);",
+                  "  pm.expect(pm.response.json().success).to.be.false;",
+                  "});"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

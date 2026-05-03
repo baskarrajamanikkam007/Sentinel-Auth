@@ -1,0 +1,760 @@
+{
+  level: 'error',
+  message: 'Failed to connect to Redis Connection is closed.',
+  stack: 'Error: Connection is closed.\n' +
+    '    at EventEmitter.connectionCloseHandler (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\ioredis\\built\\Redis.js:208:28)\n' +
+    '    at Object.onceWrapper (node:events:634:26)\n' +
+    '    at EventEmitter.emit (node:events:519:28)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:84:11)',
+  timestamp: '2026-05-02T16:08:25.712Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Otp',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 1)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:37:17.709Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Session',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 0)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:37:40.061Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Otp',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 1)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:40:31.660Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Otp',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 1)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:40:37.874Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Otp',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 1)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:40:45.427Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Session',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 0)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:40:51.759Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Session',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 0)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:40:57.419Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Session',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 0)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:41:02.813Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Otp',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 1)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:41:07.861Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Otp',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 1)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:41:13.698Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Otp',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.otp.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:10:16\n' +
+    '\n' +
+    '   7 const now = new Date();\n' +
+    '   8 const [sessions, otps] = await Promise.all([\n' +
+    '   9   prisma.session.deleteMany({ where: { expiresAt: { lt: now } } }),\n' +
+    '→ 10   prisma.otp.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 1)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:41:18.475Z'
+}
+{
+  code: 'P1003',
+  meta: {
+    modelName: 'Session',
+    driverAdapterError: DriverAdapterError: DatabaseDoesNotExist
+        at PrismaPgAdapter.onError (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:678:11)
+        at PrismaPgAdapter.performIO (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:673:12)
+        at processTicksAndRejections (node:internal/process/task_queues:103:5)
+        at PrismaPgAdapter.executeRaw (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\adapter-pg\dist\index.js:643:13)
+        at o (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\tracing.ts:66:26)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:168:18)
+        at e.interpretNode (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:272:41)
+        at e.run (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client-engine-runtime\src\interpreter\query-interpreter.ts:94:23)
+        at execute (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\LocalExecutor.ts:81:12)
+        at jt.request (D:\Development\projects\SentinelAuth\server\node_modules\@prisma\client\src\runtime\core\engines\client\ClientEngine.ts:504:22) {
+      cause: {
+        originalCode: '3D000',
+        originalMessage: 'database "sentinel" does not exist',
+        kind: 'DatabaseDoesNotExist',
+        db: 'sentinel'
+      }
+    }
+  },
+  clientVersion: '7.8.0',
+  name: 'PrismaClientKnownRequestError',
+  level: 'error',
+  message: 'Cleanup job error \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server',
+  stack: 'PrismaClientKnownRequestError: \n' +
+    'Invalid `prisma.session.deleteMany()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:9:20\n' +
+    '\n' +
+    '  6 const run = async (): Promise<void> => {\n' +
+    '  7   const now = new Date();\n' +
+    '  8   const [sessions, otps] = await Promise.all([\n' +
+    '→ 9     prisma.session.deleteMany(\n' +
+    'Database `sentinel` does not exist on the database server\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:237:13)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at async Promise.all (index 0)\n' +
+    '    at run (D:\\Development\\projects\\SentinelAuth\\server\\src\\jobs\\cleanup.job.ts:8:28)',
+  timestamp: '2026-05-02T16:41:33.726Z'
+}
+{
+  error: `Unexpected token '"', " "refreshTo"... is not valid JSON`,
+  stack: `SyntaxError: Unexpected token '"', " "refreshTo"... is not valid JSON\n` +
+    '    at JSON.parse (<anonymous>)\n' +
+    '    at createStrictSyntaxError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\body-parser\\lib\\types\\json.js:109:10)\n' +
+    '    at parse (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\body-parser\\lib\\types\\json.js:66:15)\n' +
+    '    at D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\body-parser\\lib\\read.js:162:18\n' +
+    '    at AsyncResource.runInAsyncScope (node:async_hooks:214:14)\n' +
+    '    at invokeCallback (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\raw-body\\index.js:238:16)\n' +
+    '    at done (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\raw-body\\index.js:227:7)\n' +
+    '    at IncomingMessage.onEnd (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\raw-body\\index.js:287:7)\n' +
+    '    at IncomingMessage.emit (node:events:519:28)\n' +
+    '    at endReadableNT (node:internal/streams/readable:1698:12)',
+  path: '/api/auth/refresh',
+  level: 'error',
+  message: 'Unhandled error',
+  timestamp: '2026-05-02T17:11:49.528Z'
+}
+{
+  error: "Cannot read properties of undefined (reading 'name')",
+  stack: "TypeError: Cannot read properties of undefined (reading 'name')\n" +
+    '    at Object.createApiKey (D:\\Development\\projects\\SentinelAuth\\server\\src\\modules\\api-key\\apiKey.service.ts:29:17)\n' +
+    '    at createKey (D:\\Development\\projects\\SentinelAuth\\server\\src\\modules\\api-key\\apiKey.controller.ts:7:40)\n' +
+    '    at Layer.handleRequest (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\router\\lib\\layer.js:152:17)\n' +
+    '    at next (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\router\\lib\\route.js:157:13)\n' +
+    '    at Route.dispatch (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\router\\lib\\route.js:117:3)\n' +
+    '    at handle (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\router\\index.js:435:11)\n' +
+    '    at Layer.handleRequest (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\router\\lib\\layer.js:152:17)\n' +
+    '    at D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\router\\index.js:295:15\n' +
+    '    at processParams (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\router\\index.js:582:12)\n' +
+    '    at next (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\router\\index.js:291:5)',
+  path: '/api/keys',
+  level: 'error',
+  message: 'Unhandled error',
+  timestamp: '2026-05-02T17:13:07.556Z'
+}
+{
+  error: '\n' +
+    'Invalid `prisma.apiKey.create()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\modules\\api-key\\apiKey.service.ts:26:38\n' +
+    '\n' +
+    '  23 ): Promise<ApiKeyCreatedResponse> => {\n' +
+    '  24   const { key, hash, prefix } = generateApiKeyPair();\n' +
+    '  25 \n' +
+    '→ 26   const apiKey = await prisma.apiKey.create({\n' +
+    '         data: {\n' +
+    '           userId: "5d73a222-5e44-418f-8341-155b6e2355e9",\n' +
+    '           name: "baskar",\n' +
+    '           keyHash: "f47e356e6f2830f33e9342f9d03cdcfd05c20f7634f5bbb40eb7a54413ac67d1",\n' +
+    '           prefix: "sk_41fd9f5",\n' +
+    '           permissions: [\n' +
+    '             "read:profile"\n' +
+    '           ],\n' +
+    '           expiresAt: "2026-05-04"\n' +
+    '                      ~~~~~~~~~~~~\n' +
+    '         },\n' +
+    '         select: {\n' +
+    '           id: true,\n' +
+    '           name: true,\n' +
+    '           prefix: true,\n' +
+    '           permissions: true,\n' +
+    '           lastUsedAt: true,\n' +
+    '           expiresAt: true,\n' +
+    '           isActive: true,\n' +
+    '           createdAt: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Invalid value for argument `expiresAt`: premature end of input. Expected ISO-8601 DateTime.',
+  stack: 'PrismaClientValidationError: \n' +
+    'Invalid `prisma.apiKey.create()` invocation in\n' +
+    'D:\\Development\\projects\\SentinelAuth\\server\\src\\modules\\api-key\\apiKey.service.ts:26:38\n' +
+    '\n' +
+    '  23 ): Promise<ApiKeyCreatedResponse> => {\n' +
+    '  24   const { key, hash, prefix } = generateApiKeyPair();\n' +
+    '  25 \n' +
+    '→ 26   const apiKey = await prisma.apiKey.create({\n' +
+    '         data: {\n' +
+    '           userId: "5d73a222-5e44-418f-8341-155b6e2355e9",\n' +
+    '           name: "baskar",\n' +
+    '           keyHash: "f47e356e6f2830f33e9342f9d03cdcfd05c20f7634f5bbb40eb7a54413ac67d1",\n' +
+    '           prefix: "sk_41fd9f5",\n' +
+    '           permissions: [\n' +
+    '             "read:profile"\n' +
+    '           ],\n' +
+    '           expiresAt: "2026-05-04"\n' +
+    '                      ~~~~~~~~~~~~\n' +
+    '         },\n' +
+    '         select: {\n' +
+    '           id: true,\n' +
+    '           name: true,\n' +
+    '           prefix: true,\n' +
+    '           permissions: true,\n' +
+    '           lastUsedAt: true,\n' +
+    '           expiresAt: true,\n' +
+    '           isActive: true,\n' +
+    '           createdAt: true\n' +
+    '         }\n' +
+    '       })\n' +
+    '\n' +
+    'Invalid value for argument `expiresAt`: premature end of input. Expected ISO-8601 DateTime.\n' +
+    '    at throwValidationException (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\core\\errorRendering\\throwValidationException.ts:46:9)\n' +
+    '    at zr.handleRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:211:7)\n' +
+    '    at zr.handleAndLogRequestError (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:183:12)\n' +
+    '    at zr.request (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\RequestHandler.ts:152:12)\n' +
+    '    at processTicksAndRejections (node:internal/process/task_queues:103:5)\n' +
+    '    at a (D:\\Development\\projects\\SentinelAuth\\server\\node_modules\\@prisma\\client\\src\\runtime\\getPrismaClient.ts:963:24)\n' +
+    '    at Object.createApiKey (D:\\Development\\projects\\SentinelAuth\\server\\src\\modules\\api-key\\apiKey.service.ts:26:18)\n' +
+    '    at createKey (D:\\Development\\projects\\SentinelAuth\\server\\src\\modules\\api-key\\apiKey.controller.ts:7:20)',
+  path: '/api/keys',
+  level: 'error',
+  message: 'Unhandled error',
+  timestamp: '2026-05-03T01:21:10.969Z'
+}
